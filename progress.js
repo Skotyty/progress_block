@@ -4,7 +4,7 @@ import {
   RADIUS,
   STROKE_COLOR,
   RESTORE_BTN_OFFSET
-} from '../constants.js';
+} from './constants.js';
 
 /**
  * Создаёт контроллер для управления компонентом прогресса.

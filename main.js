@@ -1,4 +1,4 @@
-import { createProgressController } from './progress/progress.js';
+import { createProgressController } from './progress.js';
 import { MIN_VALUE, MAX_VALUE, RESTORE_BTN_OFFSET } from './constants.js';
 
 const container = document.getElementById('progressBlock');
