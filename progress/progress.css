@@ -1,0 +1,238 @@
+:root {
+  --main-font: sans-serif;
+  --main-background: #ecf3fa;
+  --color-accent: #197aff; /* Основной цвет (синий) */
+  --color-muted: #e5ecf2;  /* Цвет фона/пассивных элементов */
+  --ring-size: 120px;      /* Размер кольца прогресса */
+  --progress-block-size: 90%;
+  --progress-block-bg: white;
+  --portrait-max-width: 320px;
+  --portrait-max-height: 568px;
+  --font-size: 14px;
+  --font-size-mini: 12px;
+  --font-weight: 500;
+  --border-radius: 20px;
+
+  /* Чекбоксы */
+  --checkbox-width: 36px;
+  --checkbox-height: 20px;
+  --checkbox-before-size: 16px;
+  --checkbox-before-br: 50%;
+  --checkbox-before-indent: 2px; 
+  --checkbox-before-background: white;
+  --checkbox-translate-x: calc(var(--checkbox-width) - var(--checkbox-before-size) - var(--checkbox-before-indent) * 2);
+
+  /* Текст и кнопки */
+  --progress-title-offset: 10px;
+  --restore-btn-colour: black;
+
+  /* Поле ввода */
+  --input-border-size: 1px;
+  --input-border-color: #333;
+  --input-number-width: calc(var(--checkbox-width) - var(--input-border-size)*2);
+  --input-number-height: calc(var(--checkbox-height) - var(--input-border-size)*2);
+
+  /* Кольцо прогресса */
+  --progring-circle-stroke-width: 10;
+  --progress-ring-rotation: -90deg;
+
+  /* Переходы */
+  --transition-fast: 0.2s;
+}
+
+/*  Базовая стилизация  */
+body {
+  margin: 0;
+  font-family: var(--main-font);
+  background: var(--main-background);
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/*   Блок прогресса  */
+.progress-block {
+  position: relative;
+  background: var(--progress-block-bg);
+  text-align: center;
+  width: var(--progress-block-size);
+  max-width: var(--portrait-max-width);
+  height: var(--progress-block-size);
+  max-height: var(--portrait-max-height);
+  padding: 10px;
+  transition: opacity 0.3s;
+  box-sizing: border-box;
+}
+
+/*  Кнопка "глаз"  */
+.restore-btn {
+  position: absolute;
+  top: var(--progress-title-offset);
+  left: var(--progress-title-offset);
+  background-color: transparent;
+  border: none;
+  color: var(--restore-btn-colour);
+  cursor: pointer;
+}
+
+.restore-btn svg {
+  stroke: currentColor;
+}
+
+/*  Заголовок блока  */
+.progress-title {
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  text-align: left;
+  position: absolute;
+  top: var(--progress-title-offset);
+  left: var(--progress-title-offset);
+}
+
+/*  Контент блока  */
+.progress-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 10px;
+}
+
+/*  Кольцо прогресса  */
+.progress-ring {
+  position: relative;
+  width: var(--ring-size);
+  height: var(--ring-size);
+  margin: 20px 0;
+}
+
+.progress-ring svg {
+  transform: rotate(var(--progress-ring-rotation));
+}
+
+.progress-ring circle {
+  fill: none;
+  stroke-width: var(--progring-circle-stroke-width);
+}
+
+.progress-ring circle.bg {
+  stroke: var(--color-muted);
+}
+
+.progress-ring circle.fg {
+  stroke: var(--color-accent);
+  transition: stroke-dashoffset 0.5s;
+}
+
+/*  Контролы  */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.controls label {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  gap: 8px;
+}
+
+/*  Поле ввода числа  */
+input[type="number"] {
+  width: var(--input-number-width);
+  height: var(--input-number-height);
+  padding: 0;
+  border: var(--input-border-size) solid var(--input-border-color);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-mini);
+  text-align: center;
+  outline: none;
+  appearance: textfield;
+  margin: 0;
+}
+
+/* Убираем стрелочки у числового поля */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+/*  Чекбоксы (Animate, Hide)  */
+input[type="checkbox"] {
+  width: var(--checkbox-width);
+  height: var(--checkbox-height);
+  margin: 0;
+  appearance: none;
+  background-color: var(--color-muted);
+  border-radius: var(--border-radius);
+  position: relative;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+/* Ползунок внутри чекбокса */
+input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  top: var(--checkbox-before-indent);
+  left: var(--checkbox-before-indent);
+  width: var(--checkbox-before-size);
+  height: var(--checkbox-before-size);
+  border-radius: var(--checkbox-before-br);
+  background: var(--checkbox-before-background);
+  transition: transform var(--transition-fast);
+  transform: translateX(0);
+}
+
+/* Активный чекбокс */
+input[type="checkbox"]:checked {
+  background-color: var(--color-accent);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: translateX(var(--checkbox-translate-x));
+}
+
+/*  Адаптив (горизонтальный режим)  */
+@media (orientation: landscape) {
+  .progress-block {
+    max-width: var(--portrait-max-height);
+    max-height: var(--portrait-max-width);
+  }
+
+  .progress-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+  }
+
+  .controls {
+    text-align: left;
+  }
+}
+
+/*  Анимация вращения  */
+.fg.animated {
+  animation: rotate 2s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

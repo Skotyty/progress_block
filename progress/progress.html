@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progress Block</title>
+  <link rel="stylesheet" href="progress.css" />
+  <object type="image/svg+xml" data="./icons.svg" style="display: none;"></object>
+</head>
+<body>
+    <div class="container">
+      <!-- кнопка глаз(делает объект снова видимым) -->
+      <button id="restoreBtn" class="restore-btn" hidden aria-label="Restore visibility">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+      </button>
+    <div id="progressBlock" class="progress-block">
+         
+      <div class="progress-title">Progress</div>
+      
+      <div class="progress-content">
+        <div class="progress-ring">
+          <svg width="120" height="120">
+            <circle class="bg" cx="60" cy="60" r="50" />
+            <circle class="fg" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
+
+        <div class="controls">
+          <label>
+            <input type="number" id="valueInput" min="0" max="100" value="0" />
+            Value
+          </label>
+          <label>
+            <input type="checkbox" id="animateToggle" />
+            Animate
+          </label>
+          <label>
+            <input type="checkbox" id="hideToggle" />
+            Hide
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../main.js"></script>
+
+</body>
+</html> 
+
+
