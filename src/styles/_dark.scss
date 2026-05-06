@@ -1,0 +1,22 @@
+// Тёмные токены вынесены в миксин, чтобы не дублировать
+@mixin dark-tokens {
+  --main-background: #0f1117;
+  --progress-block-bg: #1c1f26;
+  --color-muted: #2e3340;
+  --color-text: #e0e0e0;
+  --color-accent: #3d8fff;
+  --input-border-color: #555;
+  --checkbox-before-background: #e0e0e0;
+}
+
+// Системная тёмная тема — работает, если явный data-theme не задан или равен "auto"
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    @include dark-tokens;
+  }
+}
+
+// Явное принудительное тёмное — перекрывает системный медиазапрос
+[data-theme='dark'] {
+  @include dark-tokens;
+}

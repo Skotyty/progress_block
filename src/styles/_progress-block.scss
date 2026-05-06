@@ -1,0 +1,45 @@
+// Обёртка нужна, чтобы кнопка-глаз позиционировалась относительно блока,
+// но не наследовала visibility:hidden при скрытии самого блока
+.progress-wrapper {
+  position: relative;
+}
+
+.progress-block {
+  position: relative;
+  background: var(--progress-block-bg);
+  text-align: center;
+  width: var(--block-short-side);
+  height: var(--block-long-side);
+  padding: var(--progress-title-offset);
+  transition: opacity var(--transition-medium);
+  box-sizing: border-box;
+}
+
+.restore-btn {
+  position: absolute;
+  top: var(--progress-title-offset);
+  left: var(--progress-title-offset);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  color: var(--color-text);
+}
+
+.progress-title {
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  text-align: left;
+  position: absolute;
+  top: var(--progress-title-offset);
+  left: var(--progress-title-offset);
+}
+
+.progress-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: var(--content-gap);
+}

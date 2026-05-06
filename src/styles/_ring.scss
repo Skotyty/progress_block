@@ -1,0 +1,24 @@
+.progress-ring {
+  position: relative;
+  width: var(--ring-size);
+  height: var(--ring-size);
+  margin: var(--ring-margin) 0;
+
+  svg {
+    transform: rotate(var(--progress-ring-rotation));
+  }
+
+  circle {
+    fill: none;
+    stroke-width: var(--ring-stroke-width);
+
+    &.bg {
+      stroke: var(--color-muted);
+    }
+
+    &.fg {
+      stroke: var(--color-accent);
+      transition: stroke-dashoffset var(--ring-transition);
+    }
+  }
+}

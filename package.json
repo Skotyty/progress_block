@@ -1,0 +1,21 @@
+{
+  "name": "progress-block",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Progress block component for mobile web apps",
+  "scripts": {
+    "build": "sass src/styles/main.scss progress.css --no-source-map && postcss progress.css --replace --no-map",
+    "dev": "sass --watch src/styles/main.scss:progress.css --source-map",
+    "lint": "eslint *.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "autoprefixer": "^10.5.0",
+    "cssnano": "^7.1.9",
+    "eslint": "^10.3.0",
+    "globals": "^17.6.0",
+    "postcss": "^8.5.14",
+    "postcss-cli": "^11.0.1",
+    "sass": "^1.99.0"
+  }
+}

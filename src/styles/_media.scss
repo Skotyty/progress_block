@@ -1,0 +1,17 @@
+@media (orientation: landscape) {
+  .progress-block {
+    width: var(--block-long-side);
+    height: var(--block-short-side);
+  }
+
+  .progress-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--landscape-gap);
+  }
+
+  .controls {
+    text-align: left;
+  }
+}

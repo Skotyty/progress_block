@@ -1,0 +1,49 @@
+:root {
+  --main-font: sans-serif;
+  --main-background: #ecf3fa;
+  --color-accent: #197aff;
+  --color-muted: #e5ecf2;
+  --color-text: #111;
+  --ring-size: 120px;
+  --progress-block-bg: #fff;
+
+  // Размеры блока: short — короткая сторона, long — длинная
+  --block-short-side: 320px;
+  --block-long-side: 568px;
+
+  --font-size: 14px;
+  --font-size-mini: 12px;
+  --font-weight: 500;
+
+  // Чекбоксы
+  --checkbox-width: 36px;
+  --checkbox-height: 20px;
+  --checkbox-before-size: 16px;
+  --checkbox-thumb-radius: 50%;
+  --checkbox-before-indent: 2px;
+  --checkbox-before-background: #fff;
+  --checkbox-translate-x: calc(var(--checkbox-width) - var(--checkbox-before-size) - var(--checkbox-before-indent) * 2);
+  --control-radius: 20px;
+
+  // Отступы
+  --progress-title-offset: 10px;
+  --content-gap: 10px;
+  --ring-margin: 20px;
+  --landscape-gap: 70px;
+
+  // Поле ввода
+  --input-border-size: 1px;
+  --input-border-color: #333;
+  --input-number-width: calc(var(--checkbox-width) - var(--input-border-size) * 2);
+  --input-number-height: calc(var(--checkbox-height) - var(--input-border-size) * 2);
+
+  // Кольцо прогресса (stroke-width unitless — SVG user units)
+  --ring-stroke-width: 10;
+  --progress-ring-rotation: -90deg;
+  --animation-duration: 2s;
+
+  // Переходы
+  --transition-fast: 0.2s;
+  --transition-medium: 0.3s;
+  --ring-transition: 0.5s;
+}

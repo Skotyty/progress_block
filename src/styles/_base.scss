@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  font-family: var(--main-font);
+  background: var(--main-background);
+  color: var(--color-text);
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+
